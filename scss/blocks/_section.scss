@@ -1,0 +1,31 @@
+.section {
+    padding-block: $section-padding-y;  //устанавливает вертикальные внутренние отступы (сверху и снизу) для элемента
+
+    &_hidden-x {
+        overflow-x: hidden; //предотвращает появление горизонтальной полосы прокрутки, скрывая часть содержимого, которое выходит за границы элемента по горизонтали
+    }
+
+    &__header {
+        display: flex;
+        align-items: center;
+        column-gap: 40px;
+
+        @include mobile {
+            flex-direction: column;
+            row-gap: 30px;
+            text-align: center;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: 80px;    // если .section__header не является последним дочерним элементом, ему добавляется нижний отступ margin-bottom: 80px
+
+            @include mobile {
+                margin-bottom: 40px;
+            }
+        }
+    }
+
+    &__description {
+        max-width: 580px;
+    }
+}

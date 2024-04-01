@@ -1,0 +1,22 @@
+.burger-button {
+    @include reset-button;  //сбрасывает стандартные стили кнопки
+    @include square(48px);  //задает ширину и высоту кнопки, делая ее квадратной формы
+
+    position: relative;
+
+    @include hover {
+        background-color: $color-accent;
+        border-radius: $border-radius-small;
+    }
+
+    &::after {
+        @include abs-center;    //абсолютно центрирует псевдоэлемент относительно кнопки
+
+        content: '';
+        width: 50%;
+        height: 2px;
+        background-color: $color-dark;
+        border-radius: 5px;
+        box-shadow: 0 -8px 0 0 $color-dark, 0 8px 0 0 $color-dark;  //создает тень для псевдоэлемента, имитируя дополнительные линии выше и ниже основной
+    }
+}

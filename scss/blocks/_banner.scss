@@ -1,0 +1,46 @@
+.banner {
+    --bannerImageOffsetY: 24px;
+
+    padding-block: var(--bannerImageOffsetY);   //  установка вертикальных внутренних отступов баннера 
+
+    @include tablet {
+        --bannerImageOffsetY: 0;
+    }
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: $color-grey;
+        border-radius: $border-radius-large;
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        row-gap: 26px;
+        padding: 60px;
+
+        @include tablet {
+            padding: 50px;
+        }
+
+        @include mobile {
+            row-gap: 20px;
+        }
+    }
+
+    &__description {
+        max-width: 500px;
+    }
+
+    &__image {
+        margin-block: calc(var(--bannerImageOffsetY) * -1); // использует переменную --bannerImageOffsetY для задания отрицательного маржина, что позволяет компенсировать вертикальный отступ и "подтянуть" изображение ближе к краю баннера.
+
+        @include tablet {
+            max-width: 40%;
+            height: auto;
+        }
+    }
+}
