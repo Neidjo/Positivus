@@ -1,0 +1,30 @@
+.button {
+    @include flex-center(true); //центрирует содержимое кнопки
+
+    height: $button-height;
+    padding-inline: 35px;
+    color: $color-light;
+    background-color: $color-dark;
+    border: $border;
+    border-radius: $border-radius;
+
+    @include hover {
+        color: $color-dark;
+        background-color: $color-accent;
+    }
+
+    &_transparent {
+        color: $color-dark;
+        background-color: transparent;
+    }   //вложенный селектор, который создает модифицированный вариант кнопки
+
+    &_accent {
+        color: $color-dark;
+        background-color: $color-accent;
+
+        @include hover {
+            color: $color-accent;
+            background-color: $color-dark;
+        }
+    }
+}
